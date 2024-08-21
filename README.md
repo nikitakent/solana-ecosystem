@@ -10,11 +10,15 @@ To solve the tendency towards centralisation, an entire system design overhaul w
 
 This Analysis comprises of multiple parts, to be added in time.
 
+## Chapters
+
 Published:
-**Part One:** The Validators
+**Part One:** The Validators (2024/08/21)
 
 Upcoming:
 **Part Two:** JITO Labs & MEV
 **Part Three:** Fee Burning
 
-For suggestions and corrections, please do not hesistate to submit an Issue.
+## Suggestions
+
+For suggestions or corrections of the analysis, please submit an Issue request. It would be much appreciated.
