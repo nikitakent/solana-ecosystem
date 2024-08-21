@@ -6,7 +6,7 @@ However, the Economics of Solana have not been well thought through. Although So
 
 To combat centralisation, Solana Labs / Solana Foundation have turned to supplying Validators with subsidies and relying on MEV to incentivise Validators to validate the blockchain.
 
-To solve the tendency towards centralisation, an entire system design overhaul would be required of the Solana blockchain.
+To solve the tendency towards centralisation, an entire system design overhaul would be required.
 
 This Analysis comprises of multiple parts, to be added in time.
 
