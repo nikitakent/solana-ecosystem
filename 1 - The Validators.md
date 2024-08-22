@@ -28,7 +28,7 @@ $$
 - Solana has a fixed number of blocks (aka slots) per epoch: $432,000$.
 - $r_{block}$ is the current block reward, which is determined by the base fee and prioritisation fees. For the analysis, we assume $r_{block}$ to be constant at $0.0156$ SOL, fluctuating marginally over time.
 
-Validators can also earn revenue via a block ordering technique called **Maximum Extractable Value** (MEV). This technique is more controversial than not, since a lot of MEV is exploitative[^PWC]. Not all validators run MEV, and those that successfully run MEV have sophisticated algorithmic bots that beat other validator's bots. I have excluded the inclusion of MEV in this analysis since it is a fraction of what total block rewards generate and is the crypto equivalent to getting a "bonus" (as opposed to a reliable, fixed income).
+Validators can also earn revenue via a block ordering technique called **Maximum Extractable Value** (MEV). This technique is more controversial than not, since a lot of MEV is exploitative[^PWC] and revenues are volatile. For these reasons, MEV is not considered to be a foundational economic incentive for validators. 
 
 **Analysis**
 
