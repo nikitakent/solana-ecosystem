@@ -46,43 +46,25 @@ We show that the minimum viable stake for a validator must be $0.029$% of the to
 
 As of writing, the total staked pool of SOL sits at approximately $300,000,000$, which gives us a minimum viable amount of staked SOL at $86,700$ per validator. However, we are still missing a key feature.
 
-As previously mentioned, validators become successful when their probability of receiving a block reward goes up. This is intuitive since the server costs and voting costs are fixed. This means a validator is more profitable as the number of SOL staked increases. Validators are able to attract more stake by offering a yield to those who choose to allocate their stake with them, no different to the incentives of a traditional fund manager. With a 0.029% stake, profits are zero. Above $0.029$%, returns increase. However, these returns significantly underperform a very conservative expected return on investment (between 1% and 5%) by at least an order of magnitude for all $s_i$. This means that if we include the Opportunity Cost $Opp$ as an expense in our equation $e_i$, the incentives for providing stake to a validator or for a validator providing stake to itself become unclear.
+As previously mentioned, validators become successful when their probability of receiving a block reward goes up. This is intuitive since the server costs $c_s$ and voting costs $c_v$ are fixed. This means a validator is more profitable as the number of SOL staked increases. Validators are able to attract more stake by offering a yield to those who choose to allocate their stake with them, no different to the incentives of a traditional fund manager. 
 
+![A validator's annual yield of SOL.](/output.png "Annual Yield of SOL")
 
-- Suppose that the total staked SOL is $300,000,000$.
+With a 0.029% stake, profits are zero. At above $0.029$%, returns to the validator increase (see the plot above). However, these returns significantly underperform a very conservative expected return on investment (i.e, 5%) by at least an order of magnitude for all $s_i$. This means that if we include the Opportunity Cost $Opp$ as an expense in our equation $e_i$, the incentives for providing stake to a validator or for a validator providing stake to itself become unclear.
 
+**What if transaction throughput increases?**
 
-```
-import numpy as np
-import matplotlib.pyplot as plt
+So far we have assumed that the Epochs per Year $EpY$ are constant at $168$ per year. $EpY$ increases if transactions on the Solana blockchain increase. Since there are 432,000 fixed blocks per Epoch, we can safely assume that there are currently around $432000 * 168 = 72576000$ or 72 million transactions per year. To put this into perspective, there are approximately 1-2 billion credit card transactions processed per day around the world. It would be sensible to assume that Solana's transaction throughput could easily be $10x$ more per year. So what happens to the Economics of Validators if transaction throughout increases?
 
-np.set_printoptions(suppress=True)
+As $EpY$ increases, the yields of validators also increase dramatically. 
 
-TotalStakedSol = 300000000  # 2024 total staked sol
-ProportionStakedSol_i = np.arange(0.0002, 1, 0.0002)
-StakedSol_i = TotalStakedSol * ProportionStakedSol_i
-
-TotalExpense = 327.6                        # to include expected return of 1%: + StakedSol_i * 0.01
-TotalRevenue = 1132185.6 * ProportionStakedSol_i
-
-Profit = TotalRevenue - TotalExpense
-Yield = (Profit / StakedSol_i) * 100
-
-# Plot the return of the SOL, proportionate to the amount staked (as a percentage)
-# plotting
-plt.title("Profit vs. Proportion of Staked SOL") 
-plt.xlabel("Proportion of Staked Sol") 
-plt.ylabel("Distribution (%)") 
-plt.plot(ProportionStakedSol_i, Yield, color ="red") 
-plt.show()
-```
 
 If the validator offers a 5% yield on the SOL that investors stake with them, at no point is there a non-negative return for the validator.
 At a 5% conservative return for a validator's staked SOL, at no point is there a non-negative return for the validator. The same applies if we reduce this return to $1$%.
 
 **Conclusion**
 
-This analysis has examined the basic validator economic model of the Solana Validators. The voting costs associated with validating the Solana blockchain (due to Proof of History/Proof of Replication system architecture) makes it economically infeasible for Validators to generate non-negative income when considering a conservative return on the Solana staked with a validator. 
+This analysis has examined the basic validator economic model of the Solana validators. The voting costs associated with validating the Solana blockchain (due to Proof of History/Proof of Replication system architecture) makes it economically infeasible for Validators to generate non-negative income when considering a conservative return on the Solana staked with a validator. 
 
 There are two main caveats of this analysis. 
 
