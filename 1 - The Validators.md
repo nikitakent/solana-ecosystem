@@ -56,11 +56,10 @@ With a 0.029% stake, profits are zero. At above $0.029$%, returns to the validat
 
 So far we have assumed that the Epochs per Year $EpY$ are constant at $168$ per year. $EpY$ increases if transactions on the Solana blockchain increase. Since there are 432,000 fixed blocks per Epoch, we can safely assume that there are currently around $432000 * 168 = 72576000$ or 72 million transactions per year. To put this into perspective, there are approximately 1-2 billion credit card transactions processed per day around the world. It would be sensible to assume that Solana's transaction throughput could easily be $10x$ more per year. So what happens to the Economics of Validators if transaction throughout increases?
 
-As $EpY$ increases, the yields of validators also increase dramatically. When we try increase $EpY$ ten times to $1680$, the returns also increase 10x for all $n$. However, the function is monotonically increasing: this means, that validators with higher stake are guaranteed a higher return. If a validator holds $100$% of Solana stake, they are guaranteed the highest yield.
+As $EpY$ increases, the yields of validators also increase dramatically. When we try increase $EpY$ ten times to $1680$, the returns also increase 10x for all $n$. However, the function is monotonically increasing: this means, that validators with higher stake are guaranteed a higher return. If a validator holds $100$% of Solana stake, they are guaranteed the highest yield. Increasing the block reward has no effect on the monotonic properties of this function. 
 
+![A validator's annual yield of SOL given 10x current transaction throughput](/output_10x.png "Annual Yield of SOL at 10x throughput")
 
-If the validator offers a 5% yield on the SOL that investors stake with them, at no point is there a non-negative return for the validator.
-At a 5% conservative return for a validator's staked SOL, at no point is there a non-negative return for the validator. The same applies if we reduce this return to $1$%.
 
 **Conclusion**
 
