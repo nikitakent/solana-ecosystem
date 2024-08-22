@@ -19,7 +19,7 @@ Validators have two key fixed annual costs $e$: voting fees $c_v$ and server fee
 
 $$e_i = c_v* EpY + Opp $$
 
-Validators earn revenue by the way of annual block rewards $r_{annual}$. The probability of getting a block reward $r_{block}$ for a validator $i$ is equal to the probability of being assigned the block leader, which is equal to the proportion of the validator's *stake* over the entire pool of staked SOL.
+Validators earn revenue by the way of annual block rewards $r_{annual}$. The probability of getting a block reward $r_{block}$ for a validator $i$ is equal to the probability of being assigned the block leader, which is equal to the proportion of the validator's *stake* over the entire pool of staked SOL. 
 
 $$
 r_{annual} = \frac{s_i}{\sum_{i=1}^{i=n}s_i} * 432,000 * EpY * r_{block}
@@ -32,7 +32,7 @@ Validators can also earn revenue via a block ordering technique called **Maximum
 
 **Analysis**
 
-To find the minimum viable stake $\hat{s_i} = min{\frac{s_i}{\sum_{i=1}^{i=n}s_i}}$ a validator needs to have in order to have no losses, we derive the expected annual expense minus the expected annual reward for validator $i \in n$:
+To find the minimum viable stake $\hat{s_i} = min{\frac{s_i}{\sum_{i=1}^{i=n}s_i}}$ a validator needs to have in order to ensure no losses, we derive the expected annual expense minus the expected annual reward for validator $i \in n$:
 
 $$e_i - r_i = 0$$
 
@@ -48,15 +48,34 @@ Solving for $s_i$:
 
 $$ \frac{327.6}{1132185.6} = s_i = 0.00028935$$
 
-We show that the minimum viable stake for a validator must be $0.029$% of the total stake in the Solana blockchain ecosystem. In other words, there can be a maximum of $3,460$ validators in the ecosystem assuming no subsidies. There are currently $1500$ active validators, according to [Solana Beach](solanabeach.io/validators).
+We show that the minimum viable stake for a validator must be $0.029$% of the total stake in the Solana blockchain ecosystem. In other words, there can be a maximum of $3,460$ validators in the ecosystem assuming no subsidies and $0$% commission on inflation. There are currently $1500$ active validators, according to [Solana Beach](solanabeach.io/validators).
 
 As of writing, the total staked pool of SOL sits at approximately $300,000,000$, which gives us a minimum viable amount of staked SOL at $86,700$ per validator. However, we are still missing a key feature.
 
-As previously mentioned, validators become successful when their probability of receiving a block reward goes up. This is intuitive since the server costs $c_s$ and voting costs $c_v$ are fixed. This means a validator is more profitable as the number of SOL staked increases. Validators are able to attract more stake by offering a yield to those who choose to allocate their stake with them, no different to the incentives of a traditional fund manager. Hence, each staked SOL has an opportunity cost $Opp$ associated with it, which the validator must pay out.
+As previously mentioned, validators become successful when their probability of receiving a block reward goes up. This is intuitive since the server costs $c_s$ and voting costs $c_v$ are fixed. This means a validator is more profitable as the number of SOL staked increases. Validators are able to attract more stake by offering an enticing yield to those who choose to allocate their stake with them, no different to the incentives of a traditional fund manager. Hence, each staked SOL has an opportunity cost $Opp$ associated with it, which the validator must pay out.
 
 ![A validator's annual yield of SOL.](/output.png "Annual Yield of SOL")
 
-With a 0.029% stake, profits are zero, and the validator is not able to provide a yield. At above $0.029$%, returns to the validator increase (see the plot above). However, at the current block reward $r_{block}$ and current transaction throughput $EpY$, these returns significantly underperform a very conservative expected return on stake (i.e, 5%) by at least an order of magnitude for all $s_i$. This means that if we include the Opportunity Cost $Opp$ as an expense in our equation $e_i$, the incentives for providing stake to a validator or for a validator providing stake to itself become unclear.
+With a 0.029% stake, profits are zero, and the validator is not able to provide a yield. At above $0.029$%, returns to the validator increase (see the plot above). However, at the current block reward $r_{block}$ and current transaction throughput $EpY$, these returns significantly underperform a very conservative expected return on stake (i.e, 5%) by at least an order of magnitude for all $s_i$. This means that if we include the Opportunity Cost $Opp$ as an expense in our equation $e_i$, the incentives for providing stake to a validator or for a validator providing stake to itself become dependent on inflationary rewards.
+
+**Inflationary Rewards**
+
+Solana has incorporated a dynamic inflation schedule as part of their economic design for validators and stakers. To incentivise early participation in securing the network, Solana pays out an annual inflation to stakers. Solana has set inflation to be decreasing over time, and at steady-state is supposed to be set between $1.5-2$%, starting at $15$% and reducing by $current_inflation_rate - 0.15$ annually. Currently, inflation is set at approximately $5.5$%, and stakers who choose to stake with validators that are reliably voting with low latency are rewarded by getting a higher percentage of the inflationary reward. For example:
+
+- Validator A: Voting skip rate of 0.2, High Latency (slow)
+- Validator B: Voting skip rate of 0.01, Low Latency (fast)
+
+A staker may earn the entire $5.5$% inflationary reward if they stake with the superior Validator B, and only $4.9$% with Validator A.
+
+Validators may charge a commission $r_{comm}$, a percentage of the staker's inflationary reward, to help cover cost with running a validator. As the validator becomes self-sufficient (i.e., with a stake above $0.029$%), then they may move to charging $0$% commission in order to attract more stake, and therefore, earn more block rewards.
+
+Currently, most of the largest validators on Solana charge commission (usually below $10$%): a likely reason is that the revenue on inflation commission far outweighs the potential block reward and current transaction throughput. A key question is what happens when inflation reaches a $1.5$% annual steady state?
+
+
+TODO: 
+- Annual yield reaches a steady state at around 0.003 stake. However, validator rewards increase significantly, assuming they do not need to share the block rewards (need to plot this).
+- What happens at 1.5% inflation, charge 100%, 10% or 0%? (Assume stakers will not be satisfied with only 1.5% APY)
+
 
 **What if transaction throughput increases?**
 
