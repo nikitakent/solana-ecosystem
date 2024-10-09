@@ -69,7 +69,7 @@ A staker may earn the entire $5.5$% inflationary reward if they stake with the s
 
 Validators may charge a commission $r_{comm}$, a percentage of the staker's inflationary reward, to help cover cost with running a validator. As the validator becomes self-sufficient (i.e., with a stake above $0.029$%), then they may move to charging $0$% commission in order to attract more stake, and therefore, earn more block rewards.
 
-Currently, most of the largest validators on Solana charge commission (usually below $10$%): a likely reason is that the revenue on inflation commission far outweighs the potential block reward and current transaction throughput. A key question is what happens when inflation reaches a $1.5$% annual steady state?
+Currently, most of the largest validators on Solana charge commission (usually below $10$%): a likely reason is that the revenue on inflation commission far outweighs the potential block reward and current transaction throughput. A key question is what happens when inflation reaches Solana's target $1.5$% annual steady state?
 
 
 TODO: 
