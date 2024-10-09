@@ -60,7 +60,7 @@ With a 0.029% stake, profits are zero, and the validator is not able to provide 
 
 **Inflationary Rewards**
 
-Solana has incorporated a dynamic inflation schedule as part of their economic design for validators and stakers. To incentivise early participation in securing the network, Solana pays out an annual inflation to stakers. Solana has set inflation to be decreasing over time, and at steady-state is supposed to be set between $1.5-2$%, starting at $15$% and reducing by $current_inflation_rate - 0.15$ annually. Currently, inflation is set at approximately $5.5$%, and stakers who choose to stake with validators that are reliably voting with low latency are rewarded by getting a higher percentage of the inflationary reward. For example:
+Solana has incorporated a dynamic inflation schedule as part of their economic design for validators and stakers. To incentivise early participation in securing the network, Solana pays out an annual inflation to stakers. Solana has set inflation to be decreasing over time, and at steady-state is supposed to be set between $1.5-2$%, starting at $15$% and reducing by $currentinflationrate - currentinflationrate * 0.15$ annually. Currently, inflation is set at approximately $5.5$%, and stakers who choose to stake with validators that are reliably voting with low latency are rewarded by getting a higher percentage of the inflationary reward. For example:
 
 - Validator A: Voting skip rate of 0.2, High Latency (slow)
 - Validator B: Voting skip rate of 0.01, Low Latency (fast)
@@ -69,7 +69,7 @@ A staker may earn the entire $5.5$% inflationary reward if they stake with the s
 
 Validators may charge a commission $r_{comm}$, a percentage of the staker's inflationary reward, to help cover cost with running a validator. As the validator becomes self-sufficient (i.e., with a stake above $0.029$%), then they may move to charging $0$% commission in order to attract more stake, and therefore, earn more block rewards.
 
-Currently, most of the largest validators on Solana charge commission (usually below $10$%): a likely reason is that the revenue on inflation commission far outweighs the potential block reward and current transaction throughput. A key question is what happens when inflation reaches Solana's target $1.5$% annual steady state?
+Currently, many of the largest validators on Solana charge commission (usually below $10$%): a likely reason is that the revenue on inflation commission far outweighs the potential block reward and current transaction throughput. A key question is what happens when inflation reaches Solana's target $1.5$% annual steady state?
 
 
 TODO: 
