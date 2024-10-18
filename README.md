@@ -13,7 +13,7 @@ This Analysis comprises of multiple parts, to be added in time.
 ## Chapters
 
 Published:
-**[Part One: The Validators](/Part-One.md)**
+**[Part One: The Validators](/1 - The Validators.md)**
 
 
 Upcoming:
